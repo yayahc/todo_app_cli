@@ -20,7 +20,7 @@ void main() {
       loging = false;
       break;
     case 1:
-      print(todos);
+      print(todos.displayNote);
       break;
     case 2:
       stdout.write("Typing... ");
