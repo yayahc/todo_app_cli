@@ -7,7 +7,7 @@ class TODO {
     this.status  = status;
   }
 
-  String? displayNote() {
+  String? displayTask() {
     if (this.status == false) {
       return this.content;
     } else {
