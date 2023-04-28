@@ -5,8 +5,8 @@ class TODO {
     this.content = content;
   }
 
-  void displayNote() {
-    print(this.content);                
+  String? displayNote() {
+    return this.content;
   }
 
 }
