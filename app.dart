@@ -20,17 +20,17 @@ void main() {
       loging = false;
       break;
     case 1:
-      todos == null? print('0 task') : print(todos.displayNote());
+      todos == null? print('(0 task)') : print(todos.displayNote());
       break;
     case 2:
       stdout.write("Typing... ");
       String? taskContent = stdin.readLineSync();
-      var task = new TODO(taskContent!);
+      var task = new TODO(taskContent!, false);
       todos = task;
       print("Task was succefuly created !!!");
       break;
     default:
-      print("Yeah");
+      print("Something wrong!");
       break;
     }
   }
