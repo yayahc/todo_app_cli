@@ -4,34 +4,36 @@ import 'dart:io';
 
 
 void main() {
-  var menu = new Menu();
-  menu.afficheMenu(); 
+    var menu = new Menu();
+    menu.afficheMenu(); 
 
-  var loging = true;
-  var todos = null;
+    var session = true;
+    var todos = null;
   
-  while (loging) {
+    while (session) {
 
     String? choiceString = stdin.readLineSync();
     int choice = int.tryParse(choiceString!)!;
 
     switch (choice) {
     case 0:
-      loging = false;
-      break;
+        session = false;
+        break;
     case 1:
-      todos == null? print('(0 task)') : print(todos.displayTask());
-      break;
+        todos == null? print('(0 task)') : print(todos.displayTask());
+        break;
     case 2:
-      stdout.write("Typing... ");
-      String? taskContent = stdin.readLineSync();
-      var task = new TODO(taskContent!, false);
-      todos = task;
-      print("Task was succefuly created !!!");
-      break;
+        stdout.write("Typing... ");
+        String? taskContent = stdin.readLineSync();
+        var task = new TODO(taskContent!, false);
+        todos = task;
+        print("Task was succefuly created !!!");
+        break;
+    case 3:
+        break;
     default:
-      print("Something wrong!");
-      break;
+        print("Something wrong!");
+        break;
     }
-  }
+    }
 }

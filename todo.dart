@@ -9,9 +9,9 @@ class TODO {
 
   String? displayTask() {
     if (this.status == false) {
-      return this.content;
+      return "${this.content} (incomplete)";
     } else {
-      return null;
+      return "${this.content} (complete)";
     }
   }
 
