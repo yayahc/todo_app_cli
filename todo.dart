@@ -1,18 +1,15 @@
-class TODO {
+class Task {
   String? content;
   bool? status;
 
-  TODO(String content, bool status) {
+  Task(String content, bool status) {
     this.content = content;
-    this.status  = status;
+    this.status = status;
   }
+
+  updateTask() {}
 
   String? displayTask() {
-    if (this.status == false) {
-      return "${this.content} (incomplete)";
-    } else {
-      return "${this.content} (complete)";
-    }
+    return this.status! ? "[v] ${this.content}" : "[ ] ${this.content}";
   }
-
 }

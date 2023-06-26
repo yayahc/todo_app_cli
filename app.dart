@@ -2,38 +2,50 @@ import 'menu.dart';
 import 'todo.dart';
 import 'dart:io';
 
-
 void main() {
-    var menu = new Menu();
-    menu.afficheMenu(); 
+  final menu = new Menu();
+  menu.afficheMenu();
 
-    var session = true;
-    var todos = null;
-  
-    while (session) {
+  bool session = true;
+  List todos = [];
 
+  while (session) {
     String? choiceString = stdin.readLineSync();
     int choice = int.tryParse(choiceString!)!;
 
     switch (choice) {
-    case 0:
+      case 0:
         session = false;
         break;
-    case 1:
-        todos == null? print('(0 task)') : print(todos.displayTask());
+      case 1:
+        displayTodos(todos);
         break;
-    case 2:
+      case 2:
         stdout.write("Typing... ");
         String? taskContent = stdin.readLineSync();
-        var task = new TODO(taskContent!, false);
-        todos = task;
-        print("Task was succefuly created !!!");
+        createTask(taskContent!, todos);
         break;
-    case 3:
+      case 3:
+        stdout.write("Update task...");
         break;
-    default:
+      default:
         print("Something wrong!");
         break;
     }
-    }
+  }
+}
+
+List createTask(String taskContent, List todos) {
+  var task = new Task(taskContent, false);
+  todos.add(task);
+  print("Task was succefuly created !!!");
+  return todos;
+}
+
+void displayTodos(List todos) {
+  todos.length == 0
+      ? print('(0 task)')
+      : todos.forEach((element) {
+          print(element.displayTask());
+        });
 }
