@@ -4,7 +4,7 @@ import 'dart:io';
 
 void main() {
   final menu = new Menu();
-  menu.afficheMenu();
+  menu.displayMainMenu();
 
   bool session = true;
   List todos = [];
@@ -21,12 +21,13 @@ void main() {
         displayTodos(todos);
         break;
       case 2:
-        stdout.write("Typing... ");
+        stdout.write("Type... ");
         String? taskContent = stdin.readLineSync();
         createTask(taskContent!, todos);
         break;
       case 3:
         stdout.write("Update task...");
+        menu.displayUpdateMenu();
         break;
       default:
         print("Something wrong!");
